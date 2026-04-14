@@ -192,6 +192,7 @@ a {
   z-index: 1;
   color: var(--text-main);
   padding: 1.15rem;
+  padding-bottom: 8.1rem;
 }
 
 .hero-kicker {
@@ -249,10 +250,10 @@ a {
   gap: 0.65rem;
 }
 
-.lookbook-slider.section-gap {
-  padding-block: 0;
-  padding-inline: 0;
-  margin: 0;
+.hero-lookbook {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
 }
 
 .photo-slider {
@@ -263,12 +264,13 @@ a {
   background: #121212;
   box-shadow: none;
   width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .photo-track {
   display: flex;
   gap: 0.65rem;
-  padding: 0.65rem;
+  padding: 0.55rem;
   transform: translateX(0);
   will-change: transform;
 }
@@ -278,7 +280,7 @@ a {
   margin: 0;
   overflow: hidden;
   border-radius: 0;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 2;
   background: transparent;
 }
 
@@ -671,16 +673,17 @@ a {
 
   .photo-track {
     gap: 0.8rem;
-    padding: 0.8rem;
+    padding: 0.62rem 0.8rem;
   }
 
   .photo-slide {
     flex: 0 0 calc((100% - (0.8rem * 2)) / 3);
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 16 / 10;
   }
 
   .hero-content {
     padding: 1.5rem;
+    padding-bottom: 7.8rem;
     max-width: 650px;
   }
 
@@ -738,11 +741,12 @@ a {
 
   .photo-track {
     gap: 0.9rem;
-    padding: 0.9rem;
+    padding: 0.7rem 0.9rem;
   }
 
   .photo-slide {
     flex: 0 0 calc((100% - (0.9rem * 3)) / 4);
+    aspect-ratio: 16 / 10;
   }
 
   .product-grid {
