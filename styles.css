@@ -251,6 +251,7 @@ a {
 
 .lookbook-slider {
   padding-top: 0.5rem;
+  padding-inline: 0;
 }
 
 .photo-slider {
@@ -258,8 +259,9 @@ a {
   overflow: hidden;
   border-radius: 0;
   border: 0;
-  background: transparent;
+  background: #121212;
   box-shadow: none;
+  width: 100%;
 }
 
 .photo-track {
