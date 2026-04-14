@@ -256,10 +256,10 @@ a {
 .photo-slider {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: #121212;
-  box-shadow: var(--card-shadow);
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .photo-track {
@@ -274,9 +274,9 @@ a {
   flex: 0 0 calc((100% - 0.65rem) / 2);
   margin: 0;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0;
   aspect-ratio: 4 / 5;
-  background: #0f0f0f;
+  background: transparent;
 }
 
 .photo-slide img {
