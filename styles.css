@@ -159,7 +159,7 @@ a {
 .hero-banner {
   position: relative;
   overflow: hidden;
-  min-height: 580px;
+  min-height: 720px;
   border-radius: var(--radius-xl);
   background: #111;
   border: 1px solid var(--line);
@@ -209,7 +209,7 @@ a {
   z-index: 3;
   color: var(--text-main);
   padding: 1.15rem;
-  padding-bottom: 8.1rem;
+  padding-bottom: 9.2rem;
 }
 
 .hero-kicker {
@@ -732,7 +732,7 @@ a {
   }
 
   .hero-banner {
-    min-height: 510px;
+    min-height: 620px;
   }
 
   .photo-track {
@@ -747,7 +747,7 @@ a {
 
   .hero-content {
     padding: 1.5rem;
-    padding-bottom: 7.8rem;
+    padding-bottom: 8.6rem;
     max-width: 650px;
   }
 
@@ -805,7 +805,7 @@ a {
   }
 
   .hero-banner {
-    min-height: 560px;
+    min-height: 680px;
   }
 
   .photo-track {
