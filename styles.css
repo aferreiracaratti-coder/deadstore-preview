@@ -328,12 +328,15 @@ a {
   box-shadow: none;
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.16);
+  height: 240px;
 }
 
 .photo-track {
   display: flex;
   gap: 0.65rem;
   padding: 0.55rem;
+  height: 100%;
+  align-items: stretch;
   transform: translateX(0);
   will-change: transform;
 }
@@ -343,7 +346,7 @@ a {
   margin: 0;
   overflow: hidden;
   border-radius: 0;
-  aspect-ratio: 3 / 2;
+  height: 100%;
   background: transparent;
 }
 
@@ -739,9 +742,13 @@ a {
     padding: 0.62rem 0.8rem;
   }
 
+  .photo-slider {
+    height: 280px;
+  }
+
   .photo-slide {
     flex: 0 0 calc((100% - (0.8rem * 2)) / 3);
-    aspect-ratio: 16 / 10;
+    height: 100%;
   }
 
   .hero-content {
@@ -811,9 +818,13 @@ a {
     padding: 0.7rem 0.9rem;
   }
 
+  .photo-slider {
+    height: 320px;
+  }
+
   .photo-slide {
     flex: 0 0 calc((100% - (0.9rem * 3)) / 4);
-    aspect-ratio: 16 / 10;
+    height: 100%;
   }
 
   .product-grid {
