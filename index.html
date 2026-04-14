@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DeadStore - Handpicked vintage available now." />
+  <title>DeadStore | Vintage Curated</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="#inicio" class="brand" aria-label="DeadStore inicio">
+        <img src="assets/images/logo-deadstore.jpg" alt="Logo DeadStore" class="brand-logo" />
+        <span class="brand-text">DeadStore</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#disponible">Disponible</a>
+        <a href="#drops">Últimos drops</a>
+      </nav>
+
+      <a href="#disponible" class="btn btn-header">Ver disponible</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero section-gap reveal">
+      <div class="container">
+        <article class="hero-banner">
+          <picture class="hero-picture">
+            <source media="(min-width: 820px)" srcset="assets/images/hero-horizontal-deadstore.jpg" />
+            <img src="assets/images/hero-vertical-deadstore.jpg" alt="Drop DeadStore con prendas gráficas vintage" class="hero-image" />
+          </picture>
+          <div class="hero-overlay"></div>
+
+          <div class="hero-content">
+            <p class="hero-kicker">DeadStore · Vintage handpicked</p>
+            <h1>Handpicked vintage <span>/ available now</span></h1>
+            <p class="hero-subtitle">
+              Lo más fuerte del drop en un solo lugar. Más claro que Instagram, más rápido para comprar.
+            </p>
+
+            <div class="hero-category-chips" aria-label="Categorías principales">
+              <span>Hoodies</span>
+              <span>Shirts</span>
+              <span>Shorts &amp; Pants</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#disponible" class="btn btn-primary">Ver disponible</a>
+              <a href="#drops" class="btn btn-ghost">Últimos drops</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="drops" class="categories section-gap reveal">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Ordenado por categoría</p>
+          <h2>Explorá por tipo de prenda</h2>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card is-active" data-filter="all" type="button">
+            <span class="category-name">Todo disponible</span>
+            <span class="category-meta">Catálogo completo</span>
+          </button>
+          <button class="category-card" data-filter="hoodies" type="button">
+            <span class="category-name">Hoodies</span>
+            <span class="category-meta">Print y varsity</span>
+          </button>
+          <button class="category-card" data-filter="shirts" type="button">
+            <span class="category-name">Shirts</span>
+            <span class="category-meta">Tees y camisas gráficas</span>
+          </button>
+          <button class="category-card" data-filter="shorts-pants" type="button">
+            <span class="category-name">Shorts &amp; Pants</span>
+            <span class="category-meta">Cargo, mesh y track</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="disponible" class="products section-gap reveal">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Disponible ahora</p>
+          <h2>Catálogo listo para comprar</h2>
+          <p class="section-copy">Hacé click en cualquier prenda para ver detalle rápido y cerrar compra más fácil.</p>
+        </div>
+
+        <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="trust section-gap reveal">
+      <div class="container trust-grid">
+        <article class="trust-item">
+          <p class="trust-value">+5000</p>
+          <p class="trust-label">ventas concretadas</p>
+        </article>
+        <article class="trust-item">
+          <p class="trust-value">Worldwide</p>
+          <p class="trust-label">shipping disponible</p>
+        </article>
+        <article class="trust-item">
+          <p class="trust-value">100%</p>
+          <p class="trust-label">handpicked vintage</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-cta section-gap reveal">
+      <div class="container final-cta-box">
+        <img src="assets/images/catalogo-completo.webp" alt="Vista de catálogo DeadStore" class="final-cta-image" />
+        <div class="final-cta-content">
+          <p class="eyebrow">DeadStore web preview</p>
+          <h2>Comprar más fácil que por DM</h2>
+          <p>
+            Una web ordena tu stock, mejora la lectura del catálogo y acelera cada consulta de compra.
+          </p>
+          <a href="#disponible" class="btn btn-primary">Ver todo lo disponible</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>DeadStore · Vintage curated streetwear</p>
+      <a href="#inicio">Volver arriba</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
+    <div class="modal-overlay" data-close-modal="true"></div>
+    <div class="modal-card" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar vista rápida">×</button>
+
+      <div class="modal-layout">
+        <img id="modalProductImage" src="" alt="" class="modal-image" />
+
+        <div class="modal-content">
+          <p id="modalProductStatus" class="modal-status"></p>
+          <h3 id="modalProductTitle"></h3>
+          <p id="modalProductPrice" class="modal-price"></p>
+          <p id="modalProductDescription" class="modal-description"></p>
+
+          <div class="modal-actions">
+            <a class="btn btn-primary" href="#" id="modalBuyBtn">Comprar ahora</a>
+            <a class="btn btn-ghost" href="https://wa.me/59800000000" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
