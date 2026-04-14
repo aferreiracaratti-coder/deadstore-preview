@@ -159,7 +159,7 @@ a {
 .hero-banner {
   position: relative;
   overflow: hidden;
-  min-height: 720px;
+  min-height: 580px;
   border-radius: var(--radius-xl);
   background: #111;
   border: 1px solid var(--line);
@@ -209,7 +209,6 @@ a {
   z-index: 3;
   color: var(--text-main);
   padding: 1.15rem;
-  padding-bottom: 9.2rem;
 }
 
 .hero-kicker {
@@ -314,10 +313,10 @@ a {
   pointer-events: none;
 }
 
-.hero-lookbook {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: 2;
+.lookbook-slider.section-gap {
+  padding-block: 0;
+  padding-inline: 0;
+  margin: 0;
 }
 
 .photo-slider {
@@ -732,7 +731,7 @@ a {
   }
 
   .hero-banner {
-    min-height: 620px;
+    min-height: 510px;
   }
 
   .photo-track {
@@ -747,7 +746,6 @@ a {
 
   .hero-content {
     padding: 1.5rem;
-    padding-bottom: 8.6rem;
     max-width: 650px;
   }
 
@@ -805,7 +803,7 @@ a {
   }
 
   .hero-banner {
-    min-height: 680px;
+    min-height: 560px;
   }
 
   .photo-track {
