@@ -249,9 +249,10 @@ a {
   gap: 0.65rem;
 }
 
-.lookbook-slider {
-  padding-top: 0.5rem;
+.lookbook-slider.section-gap {
+  padding-block: 0;
   padding-inline: 0;
+  margin: 0;
 }
 
 .photo-slider {
