@@ -89,7 +89,8 @@ const categoryLabels = {
 
 const productGrid = document.getElementById("productGrid");
 const categoryButtons = Array.from(document.querySelectorAll(".category-card"));
-const photoSlides = Array.from(document.querySelectorAll(".photo-slide"));
+const photoSlider = document.getElementById("photoSlider");
+const photoTrack = photoSlider ? photoSlider.querySelector(".photo-track") : null;
 
 const modal = document.getElementById("productModal");
 const modalImage = document.getElementById("modalProductImage");
@@ -103,6 +104,7 @@ const modalClose = document.getElementById("modalClose");
 let selectedCategory = "all";
 let sliderIndex = 0;
 let sliderTimer = null;
+let baseSlideCount = 0;
 
 function resolveCategory(product) {
   return product.category || "hoodies";
@@ -233,31 +235,84 @@ function setupRevealAnimation() {
 }
 
 function setupPhotoSlider() {
-  if (photoSlides.length < 2) {
+  if (!photoTrack || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     return;
   }
 
-  sliderTimer = setInterval(() => {
-    photoSlides[sliderIndex].classList.remove("is-active");
-    sliderIndex = (sliderIndex + 1) % photoSlides.length;
-    photoSlides[sliderIndex].classList.add("is-active");
-  }, 2600);
+  const originalSlides = Array.from(photoTrack.querySelectorAll(".photo-slide"));
+  if (originalSlides.length < 2) {
+    return;
+  }
+
+  baseSlideCount = originalSlides.length;
+  originalSlides.forEach((slide) => {
+    const clone = slide.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    photoTrack.appendChild(clone);
+  });
+
+  function getGapSize() {
+    const styles = window.getComputedStyle(photoTrack);
+    const gapRaw = styles.columnGap !== "normal" ? styles.columnGap : styles.gap;
+    return Number.parseFloat(gapRaw) || 0;
+  }
+
+  function getStepSize() {
+    const firstSlide = photoTrack.querySelector(".photo-slide");
+    if (!firstSlide) {
+      return 0;
+    }
+    return firstSlide.getBoundingClientRect().width + getGapSize();
+  }
+
+  function applyPosition(withTransition) {
+    const stepSize = getStepSize();
+    photoTrack.style.transition = withTransition ? "transform 620ms cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+    photoTrack.style.transform = `translateX(-${sliderIndex * stepSize}px)`;
+  }
+
+  function goNextSlide() {
+    sliderIndex += 1;
+    applyPosition(true);
+  }
+
+  function startSlider() {
+    if (sliderTimer) {
+      return;
+    }
+    sliderTimer = setInterval(goNextSlide, 2300);
+  }
+
+  function stopSlider() {
+    if (!sliderTimer) {
+      return;
+    }
+    clearInterval(sliderTimer);
+    sliderTimer = null;
+  }
+
+  photoTrack.addEventListener("transitionend", () => {
+    if (sliderIndex >= baseSlideCount) {
+      sliderIndex = 0;
+      applyPosition(false);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    applyPosition(false);
+  });
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
-      clearInterval(sliderTimer);
-      sliderTimer = null;
+      stopSlider();
       return;
     }
 
-    if (!sliderTimer) {
-      sliderTimer = setInterval(() => {
-        photoSlides[sliderIndex].classList.remove("is-active");
-        sliderIndex = (sliderIndex + 1) % photoSlides.length;
-        photoSlides[sliderIndex].classList.add("is-active");
-      }, 2600);
-    }
+    startSlider();
   });
+
+  applyPosition(false);
+  startSlider();
 }
 
 categoryButtons.forEach((button) => {
