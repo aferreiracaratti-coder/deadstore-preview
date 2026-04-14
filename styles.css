@@ -165,6 +165,23 @@ a {
   border: 1px solid var(--line);
 }
 
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(142, 44, 49, 0.28), transparent 32%),
+    repeating-linear-gradient(
+      -30deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.06) 1px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(0, 0, 0, 0) 8px
+    );
+}
+
 .hero-picture {
   display: block;
   width: 100%;
@@ -189,7 +206,7 @@ a {
 .hero-content {
   position: absolute;
   inset: auto 0 0;
-  z-index: 1;
+  z-index: 3;
   color: var(--text-main);
   padding: 1.15rem;
   padding-bottom: 8.1rem;
@@ -223,6 +240,35 @@ a {
   line-height: 1.45;
 }
 
+.hero-signature {
+  margin-top: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.38rem 0.5rem;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-drop-id {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.34rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: rgba(142, 44, 49, 0.55);
+  color: #f2e8de;
+}
+
+.hero-drop-note {
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #dbd3cb;
+}
+
 .hero-category-chips {
   margin-top: 0.8rem;
   display: flex;
@@ -248,6 +294,24 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
+}
+
+.hero-stamp {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.92rem, 2.4vw, 1.1rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgba(232, 220, 210, 0.88);
+  border: 1px solid rgba(232, 220, 210, 0.42);
+  padding: 0.45rem 0.58rem 0.37rem;
+  transform: rotate(-4deg);
+  background: rgba(0, 0, 0, 0.28);
+  pointer-events: none;
 }
 
 .hero-lookbook {
@@ -685,6 +749,11 @@ a {
     padding: 1.5rem;
     padding-bottom: 7.8rem;
     max-width: 650px;
+  }
+
+  .hero-stamp {
+    top: 1.25rem;
+    right: 1.25rem;
   }
 
   .hero-content h1 {
