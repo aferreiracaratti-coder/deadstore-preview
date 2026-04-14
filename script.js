@@ -89,6 +89,7 @@ const categoryLabels = {
 
 const productGrid = document.getElementById("productGrid");
 const categoryButtons = Array.from(document.querySelectorAll(".category-card"));
+const photoSlides = Array.from(document.querySelectorAll(".photo-slide"));
 
 const modal = document.getElementById("productModal");
 const modalImage = document.getElementById("modalProductImage");
@@ -100,6 +101,8 @@ const modalBuyBtn = document.getElementById("modalBuyBtn");
 const modalClose = document.getElementById("modalClose");
 
 let selectedCategory = "all";
+let sliderIndex = 0;
+let sliderTimer = null;
 
 function resolveCategory(product) {
   return product.category || "hoodies";
@@ -229,6 +232,34 @@ function setupRevealAnimation() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
+function setupPhotoSlider() {
+  if (photoSlides.length < 2) {
+    return;
+  }
+
+  sliderTimer = setInterval(() => {
+    photoSlides[sliderIndex].classList.remove("is-active");
+    sliderIndex = (sliderIndex + 1) % photoSlides.length;
+    photoSlides[sliderIndex].classList.add("is-active");
+  }, 2600);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      clearInterval(sliderTimer);
+      sliderTimer = null;
+      return;
+    }
+
+    if (!sliderTimer) {
+      sliderTimer = setInterval(() => {
+        photoSlides[sliderIndex].classList.remove("is-active");
+        sliderIndex = (sliderIndex + 1) % photoSlides.length;
+        photoSlides[sliderIndex].classList.add("is-active");
+      }, 2600);
+    }
+  });
+}
+
 categoryButtons.forEach((button) => {
   button.addEventListener("click", handleCategoryClick);
 });
@@ -237,3 +268,4 @@ renderProducts();
 setupProductEvents();
 setupModalEvents();
 setupRevealAnimation();
+setupPhotoSlider();
